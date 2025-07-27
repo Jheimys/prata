@@ -34,9 +34,10 @@ const ReadyToLearnSectionGSAP = () => {
       ease: 'power4.out',
       scrollTrigger: {
         trigger: titleRef2.current,
+        scroller: window, 
         // markers: true, 
-        start: 'top 95%',
-        end: 'bottom 50%',
+        start: 'top 90%',
+        end: 'bottom 80%',
         // scrub: true,
         toggleActions: 'play none none reverse',
       }

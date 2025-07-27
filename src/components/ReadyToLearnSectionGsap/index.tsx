@@ -18,39 +18,71 @@ const images = [
 ];
 
 const ReadyToLearnSectionGSAP = () => {
-  const TituloRef = useRef<HTMLHeadingElement>(null);
+  const titleRef2= useRef<HTMLHeadingElement>(null);
+
+
+//   useEffect(() => {
+//   if (!TituloRef.current) return;
+
+//   const anim = gsap.fromTo(
+//     TituloRef.current,
+//     { opacity: 0, y: 50 },
+//     {
+//       opacity: 1,
+//       y: 0,
+//       ease: 'power4.out',
+//       scrollTrigger: {
+//         trigger: TituloRef.current,
+//         markers: true, 
+//         // start: 'top bottom-=100',  
+//         // end: 'top bottom-=300', 
+//         start:'top 40px',
+//         end: 'bottom 50px',   
+//         scrub: true,     
+//         toggleActions: 'play none none reverse', // opcional, não necessário com scrub
+//       }
+//     }
+//   );
+
+//   return () => {
+//     if (anim.scrollTrigger) anim.scrollTrigger.kill();
+//     anim.kill();
+//   };
+// }, []);
 
 
   useEffect(() => {
-  if (!TituloRef.current) return;
+  if (!titleRef2.current) return;
 
   const anim = gsap.fromTo(
-    TituloRef.current,
-    { opacity: 0, y: 50 },
+    titleRef2.current,
+    { opacity: 0, y: 100, filter: 'blur(0)' },
     {
       opacity: 1,
       y: 0,
+      filter: 'blur(0px)',
+      duration: 1,
       ease: 'power4.out',
       scrollTrigger: {
-        trigger: TituloRef.current,
-        markers: true, 
-        start: 'top bottom-=100',  
-        end: 'top bottom-=300',    
-        scrub: 0.7,     
-        toggleActions: 'play none none reverse', // opcional, não necessário com scrub
+        trigger: titleRef2.current,
+        // markers: true, 
+        start: 'top 90%',
+        end: 'bottom 50%',
+        // scrub: true,
+        toggleActions: 'play none none reverse',
       }
     }
   );
 
+  // Cleanup específico
   return () => {
     if (anim.scrollTrigger) anim.scrollTrigger.kill();
     anim.kill();
   };
 }, []);
 
-
   return (
-    <section className={styles.container}>
+    <section  className={styles.container}>
 
       <div className={styles.imagesGrid}>
         {images.map((img, idx) => (
@@ -66,8 +98,8 @@ const ReadyToLearnSectionGSAP = () => {
         ))}
       </div>
 
-      <div className={styles.textBlock}>
-        <h2 ref={TituloRef} className={styles.title}>
+      <div  className={styles.textBlock}>
+        <h2 ref={titleRef2} className={styles.title} id='titulo-ready'>
           The snack is ready. Now, let’s learn!
         </h2>
         <p className={styles.subtitle}>

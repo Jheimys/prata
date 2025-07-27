@@ -55,7 +55,7 @@
   font-size: 2rem;
   font-weight: 700;
   color: var(--color-secondary, #222);
-  margin: 0 0 1rem 0;
+  margin: 0 0 2rem 0;
   font-family: var(--font-primary, 'Montserrat', Arial, sans-serif);
 }
 

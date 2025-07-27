@@ -35,7 +35,7 @@ const ReadyToLearnSectionGSAP = () => {
       scrollTrigger: {
         trigger: titleRef2.current,
         // markers: true, 
-        start: 'top 55%',
+        start: 'top 95%',
         end: 'bottom 50%',
         // scrub: true,
         toggleActions: 'play none none reverse',

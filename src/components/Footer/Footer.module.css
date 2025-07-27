@@ -1,0 +1,145 @@
+.footer {
+  background: var(--color-primary); /* branco */
+  color: var(--color-secondary); /* preto */
+  font-family: var(--font-primary);
+  padding: 2.5rem 1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 2rem
+}
+
+.content {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  box-sizing: border-box;
+}
+
+.leftBlock {
+  max-width: 100%;
+}
+
+.title {
+  font-size: 2rem;
+  font-family: var(--font-primary);
+  color: var(--color-secondary); /* preto */
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-size: var(--font-size-subtitle);
+  color: #555;
+  margin-top: 1rem;
+  line-height: 1.7;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 420px;
+}
+
+.socialNav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.socialLink {
+  background: #fdfdfd;
+  color: var(--color-secondary);
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.socialLink:hover {
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  border-color: var(--color-secondary);
+}
+
+.copy {
+  text-align: center;
+  width: 100%;
+  font-size: 1rem;
+  color: #888;
+  padding-top: 1rem;
+  border-top: 1px solid #ddd;
+  margin-top: 2rem;
+  letter-spacing: 0.5px;
+  box-sizing: border-box;
+}
+
+/* Responsivo para tablets e telas médias */
+@media (max-width: 1024px) {
+  .footer{
+     padding-top: 0;
+     margin-top: 0;
+  }
+  .content {
+    max-width: 680px;
+    
+  }
+  .subtitle {
+    max-width: 100%;
+  }
+}
+
+/* Responsivo para telas pequenas (<700px) */
+@media (max-width: 700px) {
+   .content{
+      gap: 0;
+      margin-top: 0;
+   }
+  .content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0;
+    max-width: 100%;
+  }
+  .title {
+    font-size: 1.6rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+  .socialNav {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Responsivo para telas muito pequenas (<400px) */
+@media (max-width: 400px) {
+  .footer {
+    padding: 1.5rem 0.5rem;
+  }
+  .title {
+    font-size: 1.2rem;
+  }
+  .subtitle {
+    font-size: 0.92rem;
+  }
+  .socialLink {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+  .socialNav {
+    gap: 0.7rem;
+  }
+}

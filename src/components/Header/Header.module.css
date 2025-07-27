@@ -1,0 +1,48 @@
+.mainHeader {
+  /* background: var(--header-bg); */
+  padding: 0 2rem;
+  font-family: var(--font-primary);
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  margin: 1rem 3rem;
+}
+
+.iconMenu {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .headerContent {
+    height: 56px;
+  }
+}
+
+@media (max-width: 600px) {
+  .mainHeader {
+    padding: 0 1rem;
+  }
+  .headerContent {
+    height: 48px;
+  }
+}
+
+@media (max-width: 500px) {
+  .iconMenu {
+    display: block;
+    cursor: pointer;
+  }
+  .navMenu {
+    display: none; /* Oculta o menu de navegação tradicional no mobile */
+  }
+  .mainHeader {
+    padding: 0 0.5rem;
+  }
+  .headerContent {
+    height: 44px;
+  }
+}

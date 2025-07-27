@@ -1,0 +1,112 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  padding: 0.5rem 0;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.textBlock {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  color: var(--color-secondary, #222);
+  font-family: var(--font-primary, 'Montserrat', Arial, sans-serif);
+  /* Removido transition: agora GSAP cuida */
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  margin: 0;
+  font-family: var(--font-primary, 'Montserrat', Arial, sans-serif);
+}
+
+.image {
+  flex: 1;
+  max-width: 500px;
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 20px 1px 20px 1px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  margin-top: 80px;
+  margin-right: 3rem;
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  width: auto;
+  align-self: center;
+}
+
+.icon {
+  display: block;
+  /* Tamanho definido inline no componente, mas pode padronizar aqui se preferir */
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem 0;
+  }
+  .image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    width: 80%;
+    height: 180px;
+  }
+  .textBlock {
+    align-items: center;
+    text-align: center;
+    padding: 1rem 0.5rem;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 120px;
+    border-radius: 12px 1px 12px 1px;
+    margin-top: 10px;
+  }
+  .title {
+    font-size: 1.3rem;
+  }
+  .subtitle {
+    font-size: 0.9rem;
+  }
+  .textBlock {
+    padding: 0.5rem 0.2rem;
+  }
+}

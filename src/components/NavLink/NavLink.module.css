@@ -1,0 +1,31 @@
+.navLink {
+  color: black; 
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.2s;
+  font-family: var(--font-primary);
+}
+
+.navLink:hover {
+  color: #b3b3b3;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 900px) {
+  .navLink {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .navLink {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .navLink {
+    font-size: 0.85rem;
+  }
+}

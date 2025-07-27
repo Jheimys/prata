@@ -20,30 +20,30 @@ const images = [
 const ReadyToLearnSectionGSAP = () => {
   const titleRef2= useRef<HTMLHeadingElement>(null);
 
-
 //   useEffect(() => {
-//   if (!TituloRef.current) return;
+//   if (!titleRef2.current) return;
 
 //   const anim = gsap.fromTo(
-//     TituloRef.current,
-//     { opacity: 0, y: 50 },
+//     titleRef2.current,
+//     { opacity: 0, y: 100, filter: 'blur(0)' },
 //     {
 //       opacity: 1,
 //       y: 0,
+//       filter: 'blur(0px)',
+//       duration: 1,
 //       ease: 'power4.out',
 //       scrollTrigger: {
-//         trigger: TituloRef.current,
-//         markers: true, 
-//         // start: 'top bottom-=100',  
-//         // end: 'top bottom-=300', 
-//         start:'top 40px',
-//         end: 'bottom 50px',   
-//         scrub: true,     
-//         toggleActions: 'play none none reverse', // opcional, não necessário com scrub
+//         trigger: titleRef2.current,
+//         // markers: true, 
+//         start: 'top 90%',
+//         end: 'bottom 50%',
+//         // scrub: true,
+//         toggleActions: 'play none none reverse',
 //       }
 //     }
 //   );
 
+//   // Cleanup específico
 //   return () => {
 //     if (anim.scrollTrigger) anim.scrollTrigger.kill();
 //     anim.kill();
@@ -51,35 +51,70 @@ const ReadyToLearnSectionGSAP = () => {
 // }, []);
 
 
-  useEffect(() => {
+
+
+useEffect(() => {
   if (!titleRef2.current) return;
 
-  const anim = gsap.fromTo(
-    titleRef2.current,
-    { opacity: 0, y: 100, filter: 'blur(0)' },
-    {
-      opacity: 1,
-      y: 0,
-      filter: 'blur(0px)',
-      duration: 1,
-      ease: 'power4.out',
-      scrollTrigger: {
-        trigger: titleRef2.current,
-        // markers: true, 
-        start: 'top 90%',
-        end: 'bottom 50%',
-        // scrub: true,
-        toggleActions: 'play none none reverse',
-      }
-    }
-  );
+  const mm = gsap.matchMedia();
 
-  // Cleanup específico
+  mm.add("(min-width: 768px)", () => {
+    const anim = gsap.fromTo(
+      titleRef2.current,
+      { opacity: 0, y: 100, filter: 'blur(0)' },
+      {
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        duration: 1,
+        ease: 'power4.out',
+        scrollTrigger: {
+          trigger: titleRef2.current,
+          start: 'top 90%',
+          end: 'bottom 50%',
+          toggleActions: 'play none none reverse',
+        }
+      }
+    );
+    return () => {
+      if (anim.scrollTrigger) anim.scrollTrigger.kill();
+      anim.kill();
+    };
+  });
+
+  mm.add("(max-width: 767px)", () => {
+    const anim = gsap.fromTo(
+      titleRef2.current,
+      { opacity: 0, y: 100, filter: 'blur(0)' },
+      {
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        duration: 1,
+        ease: 'power4.out',
+        scrollTrigger: {
+          trigger: titleRef2.current,
+          start: 'top 95%',
+          end: 'bottom 60%',
+          toggleActions: 'play none none reverse',
+        }
+      }
+    );
+    return () => {
+      if (anim.scrollTrigger) anim.scrollTrigger.kill();
+      anim.kill();
+    };
+  });
+
   return () => {
-    if (anim.scrollTrigger) anim.scrollTrigger.kill();
-    anim.kill();
+    mm.revert(); // ✅ funciona perfeitamente agora
   };
 }, []);
+
+
+
+
+
 
   return (
     <section  className={styles.container}>

@@ -41,7 +41,13 @@ const ReadyToLearnSectionGSAP = () => {
         toggleActions: 'play none none reverse',
       }
     }
+
   );
+
+    // Força o ScrollTrigger a recalcular após o layout estar pronto
+  setTimeout(() => {
+    ScrollTrigger.refresh();
+  }, 100); // espera um pouco após o render
 
   // Cleanup específico
   return () => {

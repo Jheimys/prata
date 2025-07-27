@@ -18,23 +18,24 @@ const images = [
 ];
 
 const ReadyToLearnSectionGSAP = () => {
-  const titleRef = useRef<HTMLHeadingElement>(null);
+  const TituloRef = useRef<HTMLHeadingElement>(null);
+
 
   useEffect(() => {
-  if (!titleRef.current) return;
+  if (!TituloRef.current) return;
 
   const anim = gsap.fromTo(
-    titleRef.current,
-    { opacity: 0, y: 230 },
+    TituloRef.current,
+    { opacity: 0, y: 50 },
     {
       opacity: 1,
       y: 0,
-      duration: 1.2, // pode até remover, pois scrub controla o timing
       ease: 'power4.out',
       scrollTrigger: {
-        trigger: titleRef.current,
-        start: 'top 110%',  // anima começar um pouco mais cedo (ajuste à vontade)
-        end: 'top 60%',    // ponto onde a animação termina; reduzir faz subir mais rápido
+        trigger: TituloRef.current,
+        markers: true, 
+        start: 'top bottom-=100',  
+        end: 'top bottom-=300',    
         scrub: 0.7,     
         toggleActions: 'play none none reverse', // opcional, não necessário com scrub
       }
@@ -66,7 +67,7 @@ const ReadyToLearnSectionGSAP = () => {
       </div>
 
       <div className={styles.textBlock}>
-        <h2 ref={titleRef} className={styles.title}>
+        <h2 ref={TituloRef} className={styles.title}>
           The snack is ready. Now, let’s learn!
         </h2>
         <p className={styles.subtitle}>
